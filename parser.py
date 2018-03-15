@@ -44,7 +44,7 @@ The file follows the following format:
 
 See the file script for an example of the file format
 """
-ARG_COMMANDS = [ 'line', 'scale', 'move', 'rotate', 'save', 'circle', 'bezier', 'hermite' ]
+ARG_COMMANDS = [ 'line', 'scale', 'move', 'rotate', 'save', 'circle', 'bezier', 'hermite', 'box' ]
 
 def parse_file( fname, edges, transform, screen, color ):
 
@@ -119,5 +119,8 @@ def parse_file( fname, edges, transform, screen, color ):
                 display(screen)
             else:
                 save_extension(screen, args[0])
-            
+        elif line == 'box':
+            add_box(edges,
+                      float(args[0]), float(args[1]), float(args[2]),
+                      float(args[3]), float(args[4]), float(args[5]))
         c+= 1
