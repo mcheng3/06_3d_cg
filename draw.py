@@ -3,10 +3,7 @@ from matrix import *
 from math import *
 
 def add_box( points, x, y, z, width, height, depth ):
-    width = int(width)
-    height = int(height)
-    depth = int(depth)
-    '''add_edge(points, x, y, z, x, y, z - depth)
+    add_edge(points, x, y, z, x, y, z - depth)
     add_edge(points, x, y, z - depth, x + width, y, z - depth)
     add_edge(points, x + width, y, z-depth, x + width, y, z)
     add_edge(points, x + width, y, z, x, y, z)
@@ -17,13 +14,7 @@ def add_box( points, x, y, z, width, height, depth ):
     add_edge(points, x, y, z, x, y - height, z)
     add_edge(points, x + width, y - height, z - depth, x + width, y, z - depth)
     add_edge(points, x + width, y - height, z, x + width, y, z)
-    add_edge(points, x, y - height, z - depth, x, y, z - depth)'''
-    p = []
-    for w in range(0, width + 1, width):
-        for h in range(0, height + 1, height):
-            for d in range(0, depth + 1, depth):
-                p.append([x + w, y - h, z - d])
-    print p
+    add_edge(points, x, y - height, z - depth, x, y, z - depth)
 
 def add_sphere( points, cx, cy, cz, r, step ):
     pass
@@ -33,7 +24,12 @@ def generate_sphere( points, cx, cy, cz, r, step ):
 def add_torus( points, cx, cy, cz, r0, r1, step ):
     pass
 def generate_torus( points, cx, cy, cz, r0, r1, step ):
-    pass
+    x0 = r + cx
+    y0 = cy
+    i = 1
+    while i <= step:
+        t = float(i)/step
+        
 
 def add_circle( points, cx, cy, cz, r, step ):
     x0 = r + cx
